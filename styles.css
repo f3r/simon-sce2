@@ -1,13 +1,20 @@
 :root {
   --box-size: 300px;
-	--color-green: hsl(120, 100%, 25%);
-  --color-blue: hsl(240, 100%, 50%);
-  --color-red: hsl(0, 100%, 50%);
-  --color-yellow: hsl(60, 100%, 50%);
+
+	--color-green:  hsl(120, 50%, 30%);
+  --color-blue:   hsl(240, 50%, 30%);
+  --color-red:      hsl(0, 50%, 30%);
+  --color-yellow:  hsl(60, 50%, 30%);
+
+  --color-dark-blue:   hsl(240, 100%, 60%);
+  --color-dark-red:    hsl(0,   100%, 60%);
+	--color-dark-green:  hsl(120, 100%, 60%);
+  --color-dark-yellow: hsl(60,  100%, 60%);
 }
 
 body {
 	margin: 0;
+	background-color: black;
 }
 
 .game {
@@ -26,10 +33,22 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
+	transition: 1s linear border;
+	border: 0px solid;
 }
+.start-button:hover {
+	border: 6px solid rgb(255, 255, 255);
+	transition: 0.5s linear border;
+}
+
 .start-button > span {
 	color: white;
 	font-size: 30px;
+	cursor: pointer;
+}
+.start-button:hover > span {
+	font-weight: bolder;
 }
 
 .box-container {
@@ -54,3 +73,12 @@ body {
 .yellow { background-color: var(--color-yellow); }
 .red { background-color: var(--color-red); }
 .blue { background-color: var(--color-blue); }
+
+.green-dark { background-color: var(--color-dark-green); }
+.yellow-dark { background-color: var(--color-dark-yellow); }
+.red-dark { background-color: var(--color-dark-red); }
+.blue-dark { background-color: var(--color-dark-blue); }
+
+.off {
+	display: none;
+}
