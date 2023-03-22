@@ -33,6 +33,8 @@ Game.prototype.showSequence = function() {
 		// poner el color
 		setTimeout(() =>{
 			this[nextColor].classList.add(`${nextColor}-dark`)
+			let audio = new Audio('sound1.wav')
+			audio.play()
 		}, idx*1000)
 
 		// quitarlo en un segundo
