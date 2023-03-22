@@ -1,2 +1,41 @@
-body {
+:root {
+  --box-size: 300px;
+	--color-green: hsl(120, 100%, 25%);
+  --color-blue: hsl(240, 100%, 50%);
+  --color-red: hsl(0, 100%, 50%);
+  --color-yellow: hsl(60, 100%, 50%);
 }
+
+body {
+	margin: 0;
+}
+
+.game {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.box-container {
+	width: calc(var(--box-size)*2.1);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.box {
+	width: var(--box-size);
+	height: var(--box-size);
+	background-color: blueviolet;
+}
+
+.top-left     { border-top-left-radius: 100%;     }
+.top-right    { border-top-right-radius: 100%;    }
+.bottom-left  { border-bottom-left-radius: 100%;  }
+.bottom-right { border-bottom-right-radius: 100%; }
+
+.green { background-color: var(--color-green); }
+.yellow { background-color: var(--color-yellow); }
+.red { background-color: var(--color-red); }
+.blue { background-color: var(--color-blue); }
