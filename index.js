@@ -1,10 +1,8 @@
-const startBtn = document.querySelector('.start-button')
-const counter = document.querySelector('.counter')
+let game = new Game()
 
-let game
-startBtn.addEventListener('click', function() {
-	game = new Game()
-	startBtn.classList.add('off')
-	counter.classList.remove('off')
-	game.showSequence()
-})
+document
+	.querySelector('.start-button')
+	.addEventListener('click', function(event) {
+		game.start()
+		event.stopPropagation()
+	})

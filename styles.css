@@ -58,6 +58,7 @@ body {
 .counter {
 	width: calc(var(--box-size)*.5);
 	height: calc(var(--box-size)*.5);
+	text-align: center;
 }
 
 .box-container {

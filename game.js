@@ -15,7 +15,15 @@ function Game() {
 	this.yellow = document.querySelector('.yellow')
 	this.green = document.querySelector('.green')
 
+	this.startBtn = document.querySelector('.start-button')
+	this.counterWrapper = document.querySelector('.counter')
 	this.makeClickable()
+}
+
+Game.prototype.start = function() {
+	this.startBtn.classList.add('off')
+	this.counterWrapper.classList.remove('off')
+	game.showSequence()
 }
 
 Game.prototype.showSequence = function() {
@@ -66,21 +74,34 @@ Game.prototype.checkColor = function (userColor) {
 			this.playable = false
 		}
 	} else {
-		alert('you loose')
+		this.counterHTML.innerText = 'GAME OVER'
+		this.score = 0
+		this.sequence = [new Color()]
+		this.userSequence = [...this.sequence]
+
+		setTimeout(() => {
+			this.startBtn.classList.remove('off')
+			this.counterWrapper.classList.add('off')
+			this.counterHTML.innerText = 0
+		} ,2000)
 	}
 }
 
 Game.prototype.makeClickable = function() {
-	this.red.addEventListener('click', () => {
+	this.red.addEventListener('click', (event) => {
 		this.checkColor('red')
+		event.stopPropagation()
 	})
-	this.blue.addEventListener('click', () => {
+	this.blue.addEventListener('click', (event) => {
 		this.checkColor('blue')
+		event.stopPropagation()
 	})
-	this.yellow.addEventListener('click', () => {
+	this.yellow.addEventListener('click', (event) => {
 		this.checkColor('yellow')
+		event.stopPropagation()
 	})
-	this.green.addEventListener('click', () => {
+	this.green.addEventListener('click', (event) => {
 		this.checkColor('green')
+		event.stopPropagation()
 	})
 }
