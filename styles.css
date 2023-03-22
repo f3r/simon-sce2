@@ -63,6 +63,13 @@ body {
 	height: var(--box-size);
 	background-color: blueviolet;
 }
+.box:hover {
+	border: 1px solid white;
+}
+
+.box:active {
+	scale: 1.1;
+}
 
 .top-left     { border-top-left-radius: 100%;     }
 .top-right    { border-top-right-radius: 100%;    }

@@ -1,27 +1,60 @@
 function Game() {
 	this.sequence = [new Color()]
+	this.userSequence = [...this.sequence]
+
+	// Game status - can player click?
+	this.playable = false
 
 	// HTML Elements for colors
 	this.red = document.querySelector('.red')
 	this.blue = document.querySelector('.blue')
 	this.yellow = document.querySelector('.yellow')
 	this.green = document.querySelector('.green')
+
+	this.makeClickable()
 }
 
 Game.prototype.showSequence = function() {
-	const nextColor = this.sequence[0].color
-	this[nextColor].classList.add(`${nextColor}-dark`)
+	this.sequence.forEach((colorObj, idx) => {
+		const nextColor = colorObj.color
 
-	// poner el color y quitarlo en un segundo
+		// poner el color
+		setTimeout(() =>{
+			this[nextColor].classList.add(`${nextColor}-dark`)
+		}, idx*1000)
+
+		// quitarlo en un segundo
+		setTimeout(() => {
+			this[nextColor].classList.remove(`${nextColor}-dark`)
+		} ,idx*1000 + 500)
+	})
+
+	// Let the user play after everything is finished
 	setTimeout(() => {
-		this[nextColor].classList.remove(`${nextColor}-dark`)
-		this.makeClickable()
-	} ,1000)
+		this.playable = true
+	}, this.sequence.length * 1000)
+}
+
+Game.prototype.increaseSequence = function() {
+	this.sequence.push(new Color())
+	this.userSequence = [...this.sequence]
 }
 
 Game.prototype.checkColor = function (userColor) {
-	if (userColor === this.sequence[0].color) {
-		alert('you win')
+	if (!this.playable) return;
+
+	if (userColor === this.userSequence[0].color) {
+		// quitamos el primer color
+		this.userSequence.shift()
+
+		// GANE ESTA RONDA
+		if (this.userSequence.length === 0) {
+			this.increaseSequence()
+			setTimeout(function() {
+				this.showSequence()
+			}.bind(this), 1500);
+			this.playable = false
+		}
 	} else {
 		alert('you loose')
 	}
