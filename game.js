@@ -2,6 +2,10 @@ function Game() {
 	this.sequence = [new Color()]
 	this.userSequence = [...this.sequence]
 
+	// Counter
+	this.score = 0
+	this.counterHTML = document.getElementById('counter')
+
 	// Game status - can player click?
 	this.playable = false
 
@@ -35,9 +39,15 @@ Game.prototype.showSequence = function() {
 	}, this.sequence.length * 1000)
 }
 
+Game.prototype.addScore = function() {
+	this.score++
+	this.counterHTML.innerText = this.score
+}
+
 Game.prototype.increaseSequence = function() {
 	this.sequence.push(new Color())
 	this.userSequence = [...this.sequence]
+	this.addScore()
 }
 
 Game.prototype.checkColor = function (userColor) {

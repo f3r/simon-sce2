@@ -24,15 +24,19 @@ body {
 	height: 100vh;
 }
 
-.start-button {
-	width: calc(var(--box-size)*.8);
-	height: calc(var(--box-size)*.8);
+.circle-center {
 	background-color: black;
 	position: absolute;
 	border-radius: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+}
+
+.start-button {
+	width: calc(var(--box-size)*.8);
+	height: calc(var(--box-size)*.8);
 	cursor: pointer;
 	transition: 1s linear border;
 	border: 0px solid;
@@ -41,14 +45,19 @@ body {
 	border: 6px solid rgb(255, 255, 255);
 	transition: 0.5s linear border;
 }
-
-.start-button > span {
+.start-button > span,
+.counter > span {
 	color: white;
 	font-size: 30px;
 	cursor: pointer;
 }
 .start-button:hover > span {
 	font-weight: bolder;
+}
+
+.counter {
+	width: calc(var(--box-size)*.5);
+	height: calc(var(--box-size)*.5);
 }
 
 .box-container {
