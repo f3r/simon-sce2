@@ -17,6 +17,21 @@ body {
 	height: 100vh;
 }
 
+.start-button {
+	width: calc(var(--box-size)*.8);
+	height: calc(var(--box-size)*.8);
+	background-color: black;
+	position: absolute;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.start-button > span {
+	color: white;
+	font-size: 30px;
+}
+
 .box-container {
 	width: calc(var(--box-size)*2.1);
 	display: flex;
